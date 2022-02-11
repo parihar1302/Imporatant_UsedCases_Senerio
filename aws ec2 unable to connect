@@ -1,7 +1,8 @@
 ##ERROR:- EC2 Unable to Access/login EC2 Instance
 ----------------------------------------
 
-Senerio-1.) Pem key is not available in local system
+Senerio-1.) No such file or directory.Pem key is not available in local system
+# Search the key & go to the file location than connect with EC2 Instance
 
 Senerio-2.) Key does not have readonly (400 or 600) permission.
 
