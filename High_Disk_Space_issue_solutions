@@ -1,0 +1,28 @@
+### High disk Space 
+--------------------
+
+Q.) How will you resolve High Disk space In Linux ?
+
+A.) * Login to server
+* df -h
+* du -sh *
+* cd max space directory path
+* ls -larth
+* ls -larth | grep G   
+ #(extract GB files)
+* df -h filename
+
+Senerio-1.) You can zip large file, if it's dependent on any process. Just confirm with Developer & colleague)
+* gzip -9 filename   #(zip  max space taking file)
+
+Senerio-2.) If file is not dependent on any process & you'll have to remove it (confirm with Developer & Colleague) :-
+* > filename   #( truncating, removing file's content the file because if we directly remove , the free space will not get added in disk immediately or you will have to reboot system to reflect)
+* df -h filename
+* du -sh filename
+* df - h 
+* rm - rf filename    #(remove truncated file, because empty file utilized by INODE)
+* df -h
+
+* Senerio-3.) You can remove the file after taking the backup in other Disk, other server or S3 bucket
+
+-----------The END-------------
