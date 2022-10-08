@@ -14,7 +14,7 @@ Senerio-4.) Connection refesed to connect instance
 # InternetGateway is attached to correct VPC or not. & Check the Routing Table.
 
 
-Senerio-5.) (SSM) System Session Manager  (when remote server ssh service doesn't respond/stop)
+Senerio-5.) (SSM) System Session Manager  (when remote server's ssh service doesn't respond/stop)
 
 ##Note:-{without ssh, ssm can login to the ec2 instance. By default "SSM Agent" installed in Ubuntu16/18.04, AMAZON Linux/Linux2, Amazon ECS-Optimised, windows server 2008/12 R2/16/19.}
 
@@ -47,12 +47,12 @@ e.) Go to EC2 and connect with SSH (normal connect method)
 Senerio-6.) Recover Pem file (create new instance and detach primary instance volume and attach with new ec2 instance and mount the volume than again vice-versa of the same volume and login the primary instance. )
 
 
-Senerio-7.) Replacing Keypair of EC2 using UserData Script :-=  (USERDATA :- /.ssh) 
+Senerio-7.) Error:- publickey permission dening:- Replacing Keypair of EC2 using UserData Script :-=  (USERDATA :- /.ssh)   
             --------------------------------------
 
 a.) Create new Keypair(mykey.pem) from from ec2 console.               ##{it will store in local system downloa foler}
 
-b.) Go to the terminal(CLI) and generate a new public key from downloade private pem file.
+b.) Go to the terminal(CLI) and generate a new public key from downloade private pem file in local machine.
 
 # ssh-keygen -y -f mykey.pem         ##{generate public key and copy the content}
 
@@ -77,9 +77,31 @@ bootcmd:
    - [ssh, always]
 
 
-
 d.) Save
 
 e.) Restart the instance 
 
-f.) Login to the instance
+f.) Login to the instance with new pem file name
+
+
+
+Senerio-8.) (SSM)Lost Pem file, public key deny, :-  Modifing keypair into server ec2  :- SSM
+---------------------------------------
+
+a.) Create new instance with minimub configuration like t2.micro & launch it.
+
+b.) login to the new instance  ---> cd .ssh/  ---> cat authporized_keys  --->  copy the content  (this is public key content)
+
+c.) a.) Go to System manager > Session manager > start a session
+
+##Note:-if roles is not attached, your instances won't get listed. Go to the EC2 > action > Attach IAM role > New role > create AmazonSSMManagedEC2InstanceDefaultPolicy.
+
+d.) Start a session
+
+e.) cd .ssh/  ---> vi  authorized_keys  ---> paste the content in next line (public key content)  p--> Save & exit
+
+f.) Now login with new key.
+
+
+
+
