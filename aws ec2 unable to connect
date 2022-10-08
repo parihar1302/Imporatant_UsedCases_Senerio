@@ -47,7 +47,7 @@ e.) Go to EC2 and connect with SSH (normal connect method)
 Senerio-6.) Recover Pem file (create new instance and detach primary instance volume and attach with new ec2 instance and mount the volume than again vice-versa of the same volume and login the primary instance. )
 
 
-Senerio-7.) Error:- publickey permission dening:- Replacing Keypair of EC2 using UserData Script :-=  (USERDATA :- /.ssh)   
+Senerio-7.) Error:- publickey permission dening:- Replacing Keypair of EC2 using UserData Script :-=  (USERDATA :- /.ssh)        https://stackoverflow.com/questions/7881469/change-key-pair-for-ec2-instance
             --------------------------------------
 
 a.) Create new Keypair(mykey.pem) from from ec2 console.               ##{it will store in local system downloa foler}
@@ -82,6 +82,9 @@ d.) Save
 e.) Restart the instance 
 
 f.) Login to the instance with new pem file name
+
+##Note:- Error:p-- if you enup with an error port 22: Connection timed out
+## Solution:- go & check the userdata script again, there might be 2 times ssh-rsa mention, kindly remove one.
 
 
 
