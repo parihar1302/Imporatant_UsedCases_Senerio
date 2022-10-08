@@ -88,10 +88,10 @@ f.) Login to the instance with new pem file name
 
 
 
-Senerio-8.) (SSM)Lost Pem file, public key deny, :-  Modifing keypair into server ec2  :- SSM
+Senerio-8.) (SSM)Lost Pem file, public key deny, :-  Modifing keypair into server ec2  :- SSM         https://medium.com/tensult/aws-how-to-regain-access-to-an-ec2-instance-after-losing-your-ssh-private-key-913c53385d41
 ---------------------------------------
 
-a.) Create new instance with minimub configuration like t2.micro & launch it.
+a.) Create new instance with minimum configuration like t2.micro & launch it.
 
 b.) login to the new instance  ---> cd .ssh/  ---> cat authporized_keys  --->  copy the content  (this is public key content)
 
