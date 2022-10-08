@@ -107,4 +107,24 @@ f.) Now login with new key.
 
 
 
+Senerio-9.) Lost Pem Key/Change Keypair:- 
+-----------------------------------------------
+
+a.) Create new keypair (mykey.pem) from ec2 console.     #{it'll store in local machine, downlaod foler}
+
+b.) chmod 400 mykey.pem
+
+c.) ssh-keygen -f mykey.pem -y        ##{Generate RSA public of the newly-downloaded file in your local machine}
+
+d.) Copy the RSA code 
+
+e.) c.) a.) Go to System manager > Session manager > start a session
+
+##Note:-if roles is not attached, your instances won't get listed. Go to the EC2 > action > Attach IAM role > New role > create AmazonSSMManagedEC2InstanceDefaultPolicy.
+
+d.) Start a session
+
+e.) cd .ssh/  ---> vi  authorized_keys  ---> paste the content in next line (public key content)  p--> Save & exit
+
+f.) Now login with new key
 
