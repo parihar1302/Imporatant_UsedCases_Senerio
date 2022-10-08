@@ -107,7 +107,7 @@ f.) Now login with new key.
 
 
 
-Senerio-9.) Lost Pem Key/Change Keypair:- 
+Senerio-9.) Lost Pem Key/Change Keypair:-                          https://stackoverflow.com/questions/7881469/change-key-pair-for-ec2-instance
 -----------------------------------------------
 
 a.) Create new keypair (mykey.pem) from ec2 console.     #{it'll store in local machine, downlaod foler}
