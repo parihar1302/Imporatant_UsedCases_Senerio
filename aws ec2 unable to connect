@@ -47,17 +47,27 @@ e.) Go to EC2 and connect with SSH (normal connect method)
 Senerio-6.) Recover Pem file (create new instance and detach primary instance volume and attach with new ec2 instance and mount the volume than again vice-versa of the same volume and login the primary instance. )
 
 
-Senerio-7.) When Server Refused to take the key :-=  (USERDATA :- /.ssh) 
+Senerio-7.) Replacing Keypair of EC2 using UserData Script :-=  (USERDATA :- /.ssh) 
             --------------------------------------
 
-a.) Stop the instance
+a.) Create new Keypair(mykey.pem) from from ec2 console.               ##{it will store in local system downloa foler}
 
-b.) Go to the terminal(CLI) and generate a new key.
+b.) Go to the terminal(CLI) and generate a new public key from downloade private pem file.
 
-# ssh-keygen -y -f key.pem         ##{generate key and copy the content}
+# ssh-keygen -y -f mykey.pem         ##{generate public key and copy the content}
 
 
-c.) Go to the Knowldge-Center Artical and copy the code              {https://aws.amazon.com/premiumsupport/knowledge-center/ec2-server-refused-our-key}
+c.) Stop the instance >>>  Action  >>>  Instance Setting >>> Edit User Data  >>>  Modify user data as text  >>> paste below script after modifing ssh-rsa content of public key.
+
+##Note.) Go to the Knowldge-Center Artical and copy the code              {https://aws.amazon.com/premiumsupport/knowledge-center/ec2-server-refused-our-key}
+
+#cloud-config
+cloud_final_modules:
+- [once]
+bootcmd:
+ - echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCVv2R3Qr7PfIQdVcC40MriIEWtH2xxzVr6O6CYkDzEx+9hY/7TV3kshQX5q6ZLJEKbexdPuXUCVdn96BBiTgzImg9Q4BeSczxghNL7mmNkyv1mY82ezKNWZket8PEEyG/9pPxDJMAaXzBBHH/Ly0fQsW9BFKZmHfHNrNEQNEY6rHryM4lJmf41K4/5ieU7rONubg6jxOqMIXj7VfT7tX48Xg5phvQVnBShhTwdqhKTbkdP/94bocgMeC9afXHmAEFICguselCMlt+W28dACNdHz3a9uk9E1kqjVgmMuYKoyDzU6fKcR5nlQ64D8hYyycyMeJeSsO6P1PbO0/C3TVjT' > /home/ubuntu/.ssh/authorized_keys
+    
+    OR
 
 #cloud-config
  ssh_deletekeys: false
@@ -68,7 +78,7 @@ c.) Go to the Knowldge-Center Artical and copy the code              {https://aw
 
 
 
-d.) Go to the Dashboard > select instance > Action > View/Change UserData > Paste the knowledge-center code and in that Paste the Key content in as "ENTER KEY PAIR CONTENT HERE..." > Save
+d.) Save
 
 e.) Restart the instance 
 
