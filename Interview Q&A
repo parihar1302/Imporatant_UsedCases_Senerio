@@ -1,0 +1,18 @@
+All Interview Questions & Anweres:-
+======================================
+
+Q.) ALB vs NLB
+A.) ALB:- It works on Layer 7(Application layer) protocl like Http, Https, FTP & SMTP. Main omponant are Listern & Target Group.
+          It uses Path based routing/URL based routing & send the request to specific taregt only. Also uses weighted & round robin policy.
+          It can host multiple microserviecs behind single load balancer. ALB doesn't provide e2e encryption.
+    
+    NLB:- It wrks on Layer 4 (Tranport Layer) Protocol like TCP, UDP. Provide ulta faster processing with minimal latency. No need of security group.
+          Have ability to manage million request per min. It provide Static IP.
+          It redirects request to Elastic IP address. Provide end-2-end encryption.
+   
+   Path Based routing:-
+          
+                                         |--->----\eng\------->---> hello world (ec2)
+    User  >>>   Route53 >>> ALB ----->---|
+                                         |--->------\hindi\--->----> Namaste   (ec2)
+          
