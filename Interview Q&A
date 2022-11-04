@@ -15,4 +15,36 @@ A.) ALB:- It works on Layer 7(Application layer) protocl like Http, Https, FTP &
                                          |--->----\eng\------->---> hello world (ec2)
     User  >>>   Route53 >>> ALB ----->---|
                                          |--->------\hindi\--->----> Namaste   (ec2)
+                                         
+                                         
+Q.) What is Hosted zone in Route53 ?
+A.) It's a collection of record. You can have more than 1 hosted zone with the same name..
+Type:- 1.) Public hosted zone:- which route your traffic to internet.
+       2.) Private hosted zone:- which route your traffic to vpc.
+
+
+Q.) What is record set ?
+A.) Record set contains the info of how you want to route the traffic to specific domain & sub-domain.
+
+
+Q.) Staeless vs Statefull ?
+A.) Stateless:- Client send request to the server and server response back according to current state.
+               It does not require the server to retain session information or a status about each communicating partner for multiple request. 
+               Protocol:- http, UDP.
+          
+    Statefull:- If client send a request to the server then it expects some kind of response, if it does not get any response then it resend the request.
+                Protocol:- FTP & Telnet.
+
+
+Q.) What is multi stage docker file. how to write?
+A.)
+
+
+Q.) How to limit Docker image?
+A.) 
+
+
+
+
+*
           
