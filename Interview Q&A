@@ -25,6 +25,12 @@ Type:- 1.) Public hosted zone:- which route your traffic to internet.
 
 Q.) What is record set ?
 A.) Record set contains the info of how you want to route the traffic to specific domain & sub-domain.
+Record set type:-
+A type:-  send a request to IPv4 address
+CName Type:- send request URL to other URL (URL to URL)
+Alias Type:- redirect request to AWS resources like, ELB endpoint, Cloudfront enpoint & S3 endpoint.
+AAAA Type:- redirect request to 
+MX type:-  mail Exchanger record (MX record) specifies the mail server responsible for accepting email messages on behalf of a domain name.
 
 
 Q.) Staeless vs Statefull ?
