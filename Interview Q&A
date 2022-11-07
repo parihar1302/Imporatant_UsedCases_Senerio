@@ -29,7 +29,7 @@ Record set type:-
 A type:-  send a request to IPv4 address
 CName Type:- send request URL to other URL (URL to URL)
 Alias Type:- redirect request to AWS resources like, ELB endpoint, Cloudfront enpoint & S3 endpoint.
-AAAA Type:- redirect request to 
+AAAA Type:- redirect request to IPv6 address.
 MX type:-  mail Exchanger record (MX record) specifies the mail server responsible for accepting email messages on behalf of a domain name.
 
 
