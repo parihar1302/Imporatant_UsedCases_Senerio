@@ -6,11 +6,32 @@
 * Configurre aws-cli with Access , Secreate Key & Region specific
 $ aws configure
 
+## Senerio-1.)
 * Copying file from ec2 instance to local machine
 $ scp -i /path/to/your/key.pem ubuntu@<EC2-instance-IP>:</source-file-path> .
 
 * Copying folder/directory from ec2 instance to local machine
 $ scp -i /path/to/your/key.pem -r ubuntu@<EC2-instance-IP>:</source-directory-path> .
+
+
+## Senerio-2.)
+# Copy File from Local mahicne to EC2 instance
+$ scp -i instanceprivatekey.pem samplefile.zip ubuntu@13.212.xx.xx:/home/ubuntu/
+
+# Copy Folder/Directory from local mahchine to EC2 Instance
+$ scp -i instanceprivatekey.pem -r samplefolder ubuntu@13.212.xx.xx:/home/ubuntu/
+
+
+### Note
+# zip or tar the directory, if it is large
+$ tar -zcvf my_archive.tar.gz /path/to/large/directory
+    OR
+  zip -r my_archive.zip /home/ubuntu/my_large_directory
+
+# Unzip or untar to extract all the file
+$ tar -zxvf my_archive.tar.gz
+    OR
+ unzip my_archive.zip
 
 ## Note:- 
 * scp: The command for secure copying files.
