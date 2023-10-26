@@ -1,0 +1,23 @@
+## SCP Copying file/directory from ec2 instance to local
+#----------------------------------------------------------------
+
+* Open local Termnal (Git Bash), where your ec2 instance .pem file is located
+
+* Configurre aws-cli with Access , Secreate Key & Region specific
+$ aws configure
+
+* Copying file from ec2 instance to local machine
+$ scp -i /path/to/your/key.pem ubuntu@<EC2-instance-IP>:</source-file-path> .
+
+* Copying folder/directory from ec2 instance to local machine
+$ scp -i /path/to/your/key.pem -r ubuntu@<EC2-instance-IP>:</source-directory-path> .
+
+## Note:- 
+* scp: The command for secure copying files.
+* -i /path/to/your/key.pem: Specifies the private key to use for authentication. Replace /path/to/your/key.pem with the actual path to your private key file.
+* -r: Enables recursive copying, allowing the entire directory and its contents to be copied.
+* ubuntu: The username on the EC2 instance (for Ubuntu AMIs, the default username is often 'ubuntu'; if you're using a different AMI, replace 'ubuntu' with the appropriate username).
+* <EC2-instance-IP>: The public IP address or public DNS of your EC2 instance.
+* /path/to/file: The path to the file on the EC2 instance that you want to download.
+* .: The destination where you want to save the file on your local machine. The dot signifies the current directory.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
